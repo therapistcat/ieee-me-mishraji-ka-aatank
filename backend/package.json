@@ -1,0 +1,16 @@
+{
+  "name": "research-paper-explorer-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'No build step needed for backend'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["research", "papers", "api", "scholarly"],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend API for Research Paper Explorer application"
+}
