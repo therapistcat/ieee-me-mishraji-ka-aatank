@@ -11,13 +11,24 @@ const PORT = process.env.PORT || 5000;
 
 // CORS configuration - allows frontend to talk to backend
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "*",
+    origin: [
+        process.env.FRONTEND_URL,
+        'https://ieee-me-mishraji-ka-aatank.onrender.com',
+        'http://localhost:3000',
+        'http://localhost:5173'
+    ].filter(Boolean),
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
 
 app.use(express.json());
+
+// Logging middleware for debugging
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`);
+  next();
+});
 
 // Routes
 app.use('/api', searchRoutes);
